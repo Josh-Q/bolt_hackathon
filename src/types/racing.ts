@@ -1,58 +1,51 @@
-export interface Dog {
+export interface MLModel {
   id: string;
   name: string;
-  handler: string;
-  trainer: string;
-  age: number;
-  weight: number;
-  odds: string;
-  form: string[];
-  wins: number;
-  races: number;
-  earnings: number;
-  coat: {
-    primary: string;
-    secondary: string;
-  };
   personality: string;
+  description: string;
+  color: string;
+  prediction?: number;
+  confidence?: number;
 }
 
 export interface Race {
   id: string;
   name: string;
-  track: string;
-  date: string;
-  time: string;
-  distance: string;
-  purse: number;
-  status: 'upcoming' | 'live' | 'finished';
-  dogs: Dog[];
-  results?: RaceResult[];
-  progress?: number;
-}
-
-export interface RaceResult {
-  position: number;
-  dogId: string;
-  time: string;
-  margin: string;
+  startTime: Date;
+  endTime: Date;
+  status: 'upcoming' | 'betting' | 'locked' | 'running' | 'finished';
+  currentPrice: number;
+  targetPrice?: number;
+  models: MLModel[];
+  winner?: string;
+  timeRemaining: number;
 }
 
 export interface Bet {
   id: string;
   raceId: string;
-  dogId: string;
+  modelId: string;
   amount: number;
-  odds: string;
-  type: 'win' | 'place' | 'show';
-  status: 'pending' | 'won' | 'lost';
+  timestamp: Date;
+  status: 'active' | 'won' | 'lost';
   payout?: number;
 }
 
 export interface UserStats {
+  balance: number;
   totalBets: number;
-  totalWagered: number;
   totalWon: number;
   winRate: number;
-  currentBalance: number;
+  totalEarnings: number;
+}
+
+export interface PastRace {
+  id: string;
+  name: string;
+  startPrice: number;
+  endPrice: number;
+  winner: MLModel;
+  models: MLModel[];
+  timestamp: Date;
+  userBet?: Bet;
 }

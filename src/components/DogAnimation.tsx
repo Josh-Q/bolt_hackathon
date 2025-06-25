@@ -49,153 +49,159 @@ const DogAnimation: React.FC<DogAnimationProps> = ({
         <div className="absolute right-2 top-0 w-2 h-full bg-gradient-to-b from-red-500 via-white to-red-500 opacity-80 animate-pulse"></div>
         <div className="absolute right-0 top-0 w-1 h-full bg-black"></div>
         
-        {/* Realistic Shiba Inu Dog */}
+        {/* Authentic Shiba Inu Dog */}
         <div 
           className="absolute top-1/2 transform -translate-y-1/2 transition-all duration-1000 ease-out z-10"
           style={{ left: `${Math.min(progress, 92)}%` }}
         >
           <div className={`relative ${isLeading ? 'animate-bounce' : ''}`}>
-            {/* Dog body - more realistic proportions */}
-            <div 
-              className="relative w-12 h-7 rounded-full shadow-lg"
-              style={{ backgroundColor: color }}
-            >
-              {/* Chest area */}
-              <div 
-                className="absolute -left-1 top-1 w-4 h-5 rounded-full"
-                style={{ backgroundColor: color }}
-              ></div>
+            {/* Main body - classic Shiba proportions */}
+            <div className="relative w-14 h-8 bg-orange-400 rounded-full shadow-lg border border-orange-500">
+              {/* White chest marking - authentic Shiba pattern */}
+              <div className="absolute top-2 left-1 w-10 h-4 bg-white rounded-full opacity-90"></div>
+              <div className="absolute bottom-1 left-2 w-8 h-3 bg-white rounded-full opacity-80"></div>
               
-              {/* Dog head - more realistic Shiba Inu proportions */}
-              <div 
-                className="absolute -right-4 -top-1 w-7 h-7 rounded-full shadow-md"
-                style={{ backgroundColor: color }}
-              >
-                {/* Snout */}
-                <div 
-                  className="absolute -right-2 top-2 w-3 h-3 rounded-full"
-                  style={{ backgroundColor: color }}
-                >
-                  {/* Nose */}
-                  <div className="absolute right-0 top-1 w-1 h-1 bg-black rounded-full"></div>
+              {/* Shiba head - more authentic proportions */}
+              <div className="absolute -right-5 -top-2 w-9 h-9 bg-orange-400 rounded-full shadow-md border border-orange-500">
+                {/* White facial markings - classic Shiba pattern */}
+                <div className="absolute top-3 left-1 w-7 h-4 bg-white rounded-full opacity-90"></div>
+                <div className="absolute top-1 left-2 w-5 h-3 bg-white rounded-full opacity-80"></div>
+                
+                {/* Authentic Shiba snout */}
+                <div className="absolute -right-3 top-3 w-4 h-4 bg-orange-300 rounded-full border border-orange-400">
+                  {/* Black nose - more prominent */}
+                  <div className="absolute right-0 top-1 w-2 h-2 bg-black rounded-full"></div>
+                  {/* White snout marking */}
+                  <div className="absolute top-1 left-0 w-3 h-2 bg-white rounded-full opacity-90"></div>
                 </div>
                 
-                {/* Ears - pointed Shiba Inu style */}
-                <div className="absolute -top-2 left-1 w-2 h-4 bg-orange-800 rounded-t-full transform -rotate-12 shadow-sm"></div>
-                <div className="absolute -top-2 right-1 w-2 h-4 bg-orange-800 rounded-t-full transform rotate-12 shadow-sm"></div>
+                {/* Pointed Shiba ears - more accurate shape and position */}
+                <div className="absolute -top-3 left-0 w-3 h-5 bg-orange-600 rounded-t-full transform -rotate-20 shadow-sm border border-orange-700"></div>
+                <div className="absolute -top-3 right-0 w-3 h-5 bg-orange-600 rounded-t-full transform rotate-20 shadow-sm border border-orange-700"></div>
                 
-                {/* Inner ears */}
-                <div className="absolute -top-1 left-1.5 w-1 h-2 bg-pink-300 rounded-t-full transform -rotate-12"></div>
-                <div className="absolute -top-1 right-1.5 w-1 h-2 bg-pink-300 rounded-t-full transform rotate-12"></div>
+                {/* Pink inner ears */}
+                <div className="absolute -top-2 left-0.5 w-2 h-3 bg-pink-300 rounded-t-full transform -rotate-20"></div>
+                <div className="absolute -top-2 right-0.5 w-2 h-3 bg-pink-300 rounded-t-full transform rotate-20"></div>
                 
-                {/* Eyes - alert Shiba expression */}
-                <div className="absolute top-1 left-1.5 w-1.5 h-1.5 bg-black rounded-full"></div>
-                <div className="absolute top-1 right-1.5 w-1.5 h-1.5 bg-black rounded-full"></div>
+                {/* Dark Shiba eyes - almond shaped */}
+                <div className="absolute top-2 left-2 w-2 h-1.5 bg-black rounded-full transform -rotate-12"></div>
+                <div className="absolute top-2 right-2 w-2 h-1.5 bg-black rounded-full transform rotate-12"></div>
                 
                 {/* Eye shine */}
-                <div className="absolute top-1 left-2 w-0.5 h-0.5 bg-white rounded-full"></div>
-                <div className="absolute top-1 right-2 w-0.5 h-0.5 bg-white rounded-full"></div>
+                <div className="absolute top-2 left-2.5 w-1 h-1 bg-white rounded-full"></div>
+                <div className="absolute top-2 right-2.5 w-1 h-1 bg-white rounded-full"></div>
                 
-                {/* Mouth */}
-                <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-3 h-1 border-b-2 border-black rounded-b-full"></div>
+                {/* Shiba mouth - subtle smile */}
+                <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-4 h-1 border-b-2 border-black rounded-b-full"></div>
               </div>
               
-              {/* Realistic running legs animation */}
-              <div className="absolute -bottom-4 left-1">
+              {/* Running legs with white socks - authentic Shiba markings */}
+              <div className="absolute -bottom-5 left-2">
                 {/* Front legs */}
                 <div className="flex space-x-1">
-                  <div className="w-1.5 h-5 bg-orange-900 rounded-full animate-pulse shadow-sm" style={{ 
-                    animationDuration: '0.3s',
-                    transform: `rotate(${Math.sin(Date.now() * 0.01) * 15}deg)`
-                  }}></div>
-                  <div className="w-1.5 h-5 bg-orange-900 rounded-full animate-pulse shadow-sm" style={{ 
-                    animationDuration: '0.3s',
-                    animationDelay: '0.15s',
-                    transform: `rotate(${Math.sin(Date.now() * 0.01 + Math.PI) * 15}deg)`
-                  }}></div>
+                  <div className="relative">
+                    <div className="w-2 h-6 bg-orange-400 rounded-full shadow-sm border border-orange-500" style={{ 
+                      transform: `rotate(${Math.sin(Date.now() * 0.015) * 20}deg)`
+                    }}></div>
+                    {/* White sock marking */}
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                  <div className="relative">
+                    <div className="w-2 h-6 bg-orange-400 rounded-full shadow-sm border border-orange-500" style={{ 
+                      transform: `rotate(${Math.sin(Date.now() * 0.015 + Math.PI) * 20}deg)`
+                    }}></div>
+                    {/* White sock marking */}
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-white rounded-full"></div>
+                  </div>
                 </div>
                 {/* Paws */}
                 <div className="flex space-x-1 mt-0">
-                  <div className="w-2 h-1 bg-black rounded-full opacity-60"></div>
-                  <div className="w-2 h-1 bg-black rounded-full opacity-60"></div>
+                  <div className="w-2 h-1 bg-black rounded-full opacity-70"></div>
+                  <div className="w-2 h-1 bg-black rounded-full opacity-70"></div>
                 </div>
               </div>
               
-              <div className="absolute -bottom-4 right-1">
+              <div className="absolute -bottom-5 right-2">
                 {/* Back legs */}
                 <div className="flex space-x-1">
-                  <div className="w-1.5 h-5 bg-orange-900 rounded-full animate-pulse shadow-sm" style={{ 
-                    animationDuration: '0.3s',
-                    animationDelay: '0.1s',
-                    transform: `rotate(${Math.sin(Date.now() * 0.01 + Math.PI/2) * 20}deg)`
-                  }}></div>
-                  <div className="w-1.5 h-5 bg-orange-900 rounded-full animate-pulse shadow-sm" style={{ 
-                    animationDuration: '0.3s',
-                    animationDelay: '0.25s',
-                    transform: `rotate(${Math.sin(Date.now() * 0.01 + 3*Math.PI/2) * 20}deg)`
-                  }}></div>
+                  <div className="relative">
+                    <div className="w-2 h-6 bg-orange-400 rounded-full shadow-sm border border-orange-500" style={{ 
+                      transform: `rotate(${Math.sin(Date.now() * 0.015 + Math.PI/2) * 25}deg)`
+                    }}></div>
+                    {/* White sock marking */}
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                  <div className="relative">
+                    <div className="w-2 h-6 bg-orange-400 rounded-full shadow-sm border border-orange-500" style={{ 
+                      transform: `rotate(${Math.sin(Date.now() * 0.015 + 3*Math.PI/2) * 25}deg)`
+                    }}></div>
+                    {/* White sock marking */}
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-white rounded-full"></div>
+                  </div>
                 </div>
                 {/* Paws */}
                 <div className="flex space-x-1 mt-0">
-                  <div className="w-2 h-1 bg-black rounded-full opacity-60"></div>
-                  <div className="w-2 h-1 bg-black rounded-full opacity-60"></div>
+                  <div className="w-2 h-1 bg-black rounded-full opacity-70"></div>
+                  <div className="w-2 h-1 bg-black rounded-full opacity-70"></div>
                 </div>
               </div>
               
-              {/* Realistic curly Shiba tail */}
-              <div className="absolute -left-4 -top-1 w-5 h-4 border-3 border-orange-800 rounded-full border-b-transparent border-l-transparent transform rotate-45 animate-pulse"></div>
-              <div className="absolute -left-3 -top-2 w-2 h-2 bg-orange-800 rounded-full animate-pulse"></div>
-              
-              {/* Body markings - typical Shiba coloring */}
-              <div className="absolute top-1 left-2 w-6 h-3 bg-white opacity-80 rounded-full"></div>
-              <div className="absolute top-3 left-1 w-8 h-2 bg-white opacity-60 rounded-full"></div>
+              {/* Authentic Shiba curly tail - more detailed */}
+              <div className="absolute -left-6 -top-3 relative">
+                {/* Tail base */}
+                <div className="w-3 h-3 bg-orange-400 rounded-full border border-orange-500"></div>
+                {/* Curly tail shape */}
+                <div className="absolute top-0 left-2 w-6 h-6 border-4 border-orange-400 rounded-full border-b-transparent border-l-transparent transform rotate-45"></div>
+                <div className="absolute -top-1 left-4 w-3 h-3 bg-orange-400 rounded-full border border-orange-500"></div>
+                {/* White tail tip */}
+                <div className="absolute -top-2 left-5 w-2 h-2 bg-white rounded-full"></div>
+              </div>
             </div>
             
-            {/* Speed lines and dust - more realistic */}
-            <div className="absolute -left-8 top-2 flex space-x-1">
-              <div className="w-4 h-1 bg-yellow-200 rounded-full animate-ping opacity-60"></div>
-              <div className="w-3 h-1 bg-yellow-300 rounded-full animate-ping opacity-40" style={{ animationDelay: '0.2s' }}></div>
-              <div className="w-2 h-1 bg-yellow-400 rounded-full animate-ping opacity-30" style={{ animationDelay: '0.4s' }}></div>
+            {/* Enhanced speed effects */}
+            <div className="absolute -left-10 top-1 flex space-x-1">
+              <div className="w-5 h-1 bg-yellow-300 rounded-full animate-ping opacity-70"></div>
+              <div className="w-4 h-1 bg-yellow-400 rounded-full animate-ping opacity-50" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-3 h-1 bg-yellow-500 rounded-full animate-ping opacity-30" style={{ animationDelay: '0.4s' }}></div>
             </div>
             
-            {/* Ground dust */}
-            <div className="absolute -left-6 bottom-0 flex space-x-1">
-              <div className="w-3 h-2 bg-gray-300 rounded-full animate-bounce opacity-50"></div>
-              <div className="w-2 h-1 bg-gray-400 rounded-full animate-bounce opacity-30" style={{ animationDelay: '0.1s' }}></div>
-              <div className="w-1 h-1 bg-gray-500 rounded-full animate-bounce opacity-20" style={{ animationDelay: '0.2s' }}></div>
+            {/* Ground dust clouds */}
+            <div className="absolute -left-8 bottom-0 flex space-x-1">
+              <div className="w-4 h-3 bg-gray-300 rounded-full animate-bounce opacity-60"></div>
+              <div className="w-3 h-2 bg-gray-400 rounded-full animate-bounce opacity-40" style={{ animationDelay: '0.1s' }}></div>
+              <div className="w-2 h-1 bg-gray-500 rounded-full animate-bounce opacity-20" style={{ animationDelay: '0.2s' }}></div>
             </div>
             
-            {/* Wow text bubble */}
+            {/* Wow speech bubble for leader */}
             {isLeading && (
-              <div className="absolute -top-8 -left-2 bg-white border-2 border-yellow-400 rounded-lg px-2 py-1 text-xs font-bold text-yellow-800 animate-bounce">
-                WOW!
+              <div className="absolute -top-10 -left-4 bg-white border-2 border-yellow-400 rounded-lg px-3 py-2 text-xs font-bold text-yellow-800 animate-bounce shadow-lg">
+                SUCH WOW!
                 <div className="absolute bottom-0 left-1/2 transform translate-y-1 -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-yellow-400"></div>
               </div>
             )}
             
-            {/* Breathing effect */}
-            <div className="absolute inset-0 w-12 h-7 rounded-full animate-pulse opacity-20" style={{
-              backgroundColor: color,
-              animationDuration: '0.8s'
+            {/* Breathing/panting effect */}
+            <div className="absolute inset-0 w-14 h-8 rounded-full animate-pulse opacity-10 bg-orange-300" style={{
+              animationDuration: '1.2s'
             }}></div>
           </div>
         </div>
         
-        {/* Cheering crowd silhouettes */}
-        <div className="absolute top-0 left-4 w-1 h-2 bg-gray-600 rounded-full opacity-40 animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-        <div className="absolute top-0 left-8 w-1 h-2 bg-gray-600 rounded-full opacity-40 animate-bounce" style={{ animationDelay: '0.3s' }}></div>
-        <div className="absolute top-0 left-12 w-1 h-2 bg-gray-600 rounded-full opacity-40 animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+        {/* Cheering crowd */}
+        <div className="absolute top-0 left-6 w-1 h-3 bg-gray-600 rounded-full opacity-50 animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+        <div className="absolute top-0 left-12 w-1 h-3 bg-gray-600 rounded-full opacity-50 animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+        <div className="absolute top-0 left-18 w-1 h-3 bg-gray-600 rounded-full opacity-50 animate-bounce" style={{ animationDelay: '0.5s' }}></div>
       </div>
       
-      {/* Progress bar with Doge colors */}
-      <div className="mt-3 w-full bg-gray-200 rounded-full h-2 shadow-inner">
+      {/* Progress bar */}
+      <div className="mt-3 w-full bg-gray-200 rounded-full h-3 shadow-inner border border-gray-300">
         <div 
-          className="h-2 rounded-full transition-all duration-1000 ease-out bg-gradient-to-r from-yellow-400 to-orange-500 shadow-sm"
+          className="h-3 rounded-full transition-all duration-1000 ease-out bg-gradient-to-r from-orange-400 to-yellow-500 shadow-sm border-r border-orange-500"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
       
-      {/* Doge commentary */}
+      {/* Authentic Shiba commentary */}
       <div className="mt-2 text-center">
         <span className="text-xs text-gray-600 font-medium">
           {progress < 25 ? 'Such Start • Very Begin' :

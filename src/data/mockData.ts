@@ -1,166 +1,102 @@
-import { Race, Dog, Bet, UserStats } from '../types/racing';
+import { MLModel, Race, UserStats, PastRace } from '../types/racing';
 
-export const mockDogs: Dog[] = [
+export const mlModels: MLModel[] = [
   {
-    id: '1',
-    name: 'Much Speed Doge',
-    handler: 'Wow Handler',
-    trainer: 'Such Trainer',
-    age: 3,
-    weight: 25,
-    odds: '3-1',
-    form: ['1', '2', '1', '3', '1'],
-    wins: 8,
-    races: 15,
-    earnings: 245000,
-    coat: { primary: '#F59E0B', secondary: '#FFFFFF' },
-    personality: 'Very Fast • Much Zoom'
+    id: 'satoshi-shibe',
+    name: 'Satoshi Shibe',
+    personality: 'The Conservative',
+    description: 'Steady predictions, minimal risk approach',
+    color: '#10B981', // Green
   },
   {
-    id: '2',
-    name: 'Wow Runner',
-    handler: 'Such Handler',
-    trainer: 'Very Trainer',
-    age: 4,
-    weight: 28,
-    odds: '5-2',
-    form: ['2', '1', '4', '1', '2'],
-    wins: 12,
-    races: 22,
-    earnings: 380000,
-    coat: { primary: '#DC2626', secondary: '#FEF3C7' },
-    personality: 'Much Energy • So Athletic'
+    id: 'moondoggie',
+    name: 'MoonDoggie',
+    personality: 'The Aggressive',
+    description: 'Bold predictions, high-risk high-reward',
+    color: '#EF4444', // Red
   },
   {
-    id: '3',
-    name: 'Golden Shibe',
-    handler: 'Many Handler',
-    trainer: 'Doge Trainer',
-    age: 2,
-    weight: 22,
-    odds: '4-1',
-    form: ['1', '1', '2', '1', '3'],
-    wins: 6,
-    races: 10,
-    earnings: 195000,
-    coat: { primary: '#F59E0B', secondary: '#FFFFFF' },
-    personality: 'Such Golden • Very Shiny'
-  },
-  {
-    id: '4',
-    name: 'Storm Shiba',
-    handler: 'Lightning Handler',
-    trainer: 'Thunder Trainer',
-    age: 5,
-    weight: 30,
-    odds: '8-1',
-    form: ['3', '2', '1', '4', '2'],
-    wins: 15,
-    races: 35,
-    earnings: 520000,
-    coat: { primary: '#6B7280', secondary: '#FFFFFF' },
-    personality: 'Much Storm • Very Power'
-  },
-  {
-    id: '5',
-    name: 'Fire Doge',
-    handler: 'Blaze Handler',
-    trainer: 'Flame Trainer',
-    age: 3,
-    weight: 26,
-    odds: '6-1',
-    form: ['2', '3', '1', '2', '1'],
-    wins: 9,
-    races: 18,
-    earnings: 275000,
-    coat: { primary: '#EF4444', secondary: '#FEF3C7' },
-    personality: 'Such Fire • Very Hot'
-  },
-  {
-    id: '6',
-    name: 'Moon Shibe',
-    handler: 'Space Handler',
-    trainer: 'Rocket Trainer',
-    age: 4,
-    weight: 24,
-    odds: '12-1',
-    form: ['4', '2', '3', '1', '5'],
-    wins: 7,
-    races: 25,
-    earnings: 185000,
-    coat: { primary: '#8B5CF6', secondary: '#FFFFFF' },
-    personality: 'To The Moon • Much Rocket'
-  }
-];
-
-export const mockRaces: Race[] = [
-  {
-    id: '1',
-    name: 'The Great Doge Derby',
-    track: 'Wow Speedway',
-    date: '2024-01-15',
-    time: '15:30',
-    distance: '400 meters',
-    purse: 500000,
-    status: 'upcoming',
-    dogs: mockDogs.slice(0, 4)
-  },
-  {
-    id: '2',
-    name: 'Much Speed Championship',
-    track: 'Such Track Arena',
-    date: '2024-01-15',
-    time: '16:15',
-    distance: '350 meters',
-    purse: 750000,
-    status: 'live',
-    dogs: mockDogs.slice(2, 6),
-    progress: 75
-  },
-  {
-    id: '3',
-    name: 'Very Elite Shiba Stakes',
-    track: 'Doge Racing Park',
-    date: '2024-01-14',
-    time: '17:00',
-    distance: '500 meters',
-    purse: 1000000,
-    status: 'finished',
-    dogs: mockDogs,
-    results: [
-      { position: 1, dogId: '2', time: '0:28.15', margin: '' },
-      { position: 2, dogId: '1', time: '0:28.32', margin: '1¼' },
-      { position: 3, dogId: '3', time: '0:28.45', margin: '½' }
-    ]
+    id: 'sheba-fomo',
+    name: 'Sheba Fomo',
+    personality: 'The Trend Follower',
+    description: 'Momentum-based, follows market patterns',
+    color: '#8B5CF6', // Purple
   }
 ];
 
 export const mockUserStats: UserStats = {
-  totalBets: 24,
-  totalWagered: 2400,
-  totalWon: 2850,
-  winRate: 42,
-  currentBalance: 5450
+  balance: 88,
+  totalBets: 0,
+  totalWon: 0,
+  winRate: 0,
+  totalEarnings: 0
 };
 
-export const mockBets: Bet[] = [
+// Generate mock Dogecoin price (around $0.08-$0.12 range)
+export const generateMockPrice = (): number => {
+  return 0.08 + Math.random() * 0.04;
+};
+
+// Generate ML predictions based on current price
+export const generateMLPredictions = (currentPrice: number): MLModel[] => {
+  return mlModels.map(model => {
+    let prediction: number;
+    let confidence: number;
+    
+    switch (model.id) {
+      case 'satoshi-shibe':
+        // Conservative: ±1-3% change
+        prediction = currentPrice * (1 + (Math.random() - 0.5) * 0.06);
+        confidence = 75 + Math.random() * 20; // 75-95%
+        break;
+      case 'moondoggie':
+        // Aggressive: ±3-8% change
+        prediction = currentPrice * (1 + (Math.random() - 0.5) * 0.16);
+        confidence = 60 + Math.random() * 25; // 60-85%
+        break;
+      case 'sheba-fomo':
+        // Trend follower: ±2-5% change with slight upward bias
+        prediction = currentPrice * (1 + (Math.random() - 0.4) * 0.10);
+        confidence = 70 + Math.random() * 20; // 70-90%
+        break;
+      default:
+        prediction = currentPrice;
+        confidence = 50;
+    }
+    
+    return {
+      ...model,
+      prediction: Math.max(0.01, prediction), // Ensure positive price
+      confidence: Math.round(confidence)
+    };
+  });
+};
+
+export const mockPastRaces: PastRace[] = [
   {
-    id: '1',
-    raceId: '3',
-    dogId: '2',
-    amount: 100,
-    odds: '5-2',
-    type: 'win',
-    status: 'won',
-    payout: 250
+    id: 'race-002',
+    name: 'Race #002',
+    startPrice: 0.0915,
+    endPrice: 0.0898,
+    winner: mlModels[0], // Satoshi Shibe
+    models: [
+      { ...mlModels[0], prediction: 0.0901 },
+      { ...mlModels[1], prediction: 0.0875 },
+      { ...mlModels[2], prediction: 0.0925 }
+    ],
+    timestamp: new Date(Date.now() - 5 * 60 * 1000) // 5 minutes ago
   },
   {
-    id: '2',
-    raceId: '2',
-    dogId: '4',
-    amount: 50,
-    odds: '8-1',
-    type: 'win',
-    status: 'pending'
+    id: 'race-001',
+    name: 'Race #001',
+    startPrice: 0.0892,
+    endPrice: 0.0915,
+    winner: mlModels[2], // Sheba Fomo
+    models: [
+      { ...mlModels[0], prediction: 0.0888 },
+      { ...mlModels[1], prediction: 0.0945 },
+      { ...mlModels[2], prediction: 0.0912 }
+    ],
+    timestamp: new Date(Date.now() - 10 * 60 * 1000) // 10 minutes ago
   }
 ];
