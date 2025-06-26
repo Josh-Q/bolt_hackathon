@@ -15,7 +15,7 @@ export const loginApi = createApi({
     return {
       loginCredentials: build.mutation<LoginResponse, LoginRequest>({
         query: (body: LoginRequest) => ({
-          url: "/bolt/login",
+          url: "/login",
           method: METHOD_TYPE.POST,
           data: JSON.stringify(body),
         }),
